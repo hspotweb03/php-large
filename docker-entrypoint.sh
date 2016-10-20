@@ -23,5 +23,7 @@ sed -i -e 's/\(.*\)\(MinSpareServers\)\(.*\)/\1\2\t2/g' /etc/apache2/mods-enable
 sed -i -e 's/\(.*\)\(MaxSpareServers\)\(.*\)/\1\2\t8/g' /etc/apache2/mods-enabled/mpm_prefork.conf
 sed -i -e 's/\(.*\)\(MaxRequestWorkers\)\(.*\)/\1\2\t30/g' /etc/apache2/mods-enabled/mpm_prefork.conf
 sed -i -e 's/\(.*\)\(MaxConnectionsPerChild\)\(.*\)/\1\2\t250/g' /etc/apache2/mods-enabled/mpm_prefork.conf
+sed -i -e 's/\(^ServerTokens\)\(.*\)/\1\ Prod/g' /etc/apache2/conf-available/security.conf
+sed -i -e 's/\(^ServerSignature\)\(.*\)/\1\ Off/g' /etc/apache2/conf-available/security.conf
 
 exec "$@"
